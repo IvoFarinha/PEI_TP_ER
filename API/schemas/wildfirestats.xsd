@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://estg.ipp.pt/pei/wildfirestats"
+    xmlns="http://estg.ipp.pt/pei/wildfirestats"
+    xmlns:tns="http://estg.ipp.pt/pei/wildfirestats"
+    elementFormDefault="qualified">
+    
+    <!-- ===== ENUMS ===== -->
+    <xs:simpleType name="EstadoOcorrenciaType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Em Curso"/>
+            <xs:enumeration value="Concluído"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="TipoPovoamentoType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Florestal"/>
+            <xs:enumeration value="Mato"/>
+            <xs:enumeration value="Agrícola"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="DirecaoVentoType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="N"/>
+            <xs:enumeration value="NE"/>
+            <xs:enumeration value="E"/>
+            <xs:enumeration value="SE"/>
+            <xs:enumeration value="S"/>
+            <xs:enumeration value="SO"/>
+            <xs:enumeration value="O"/>
+            <xs:enumeration value="NO"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <!-- ===== TYPES ===== -->
+    <xs:complexType name="LocalizacaoType">
+        <xs:sequence>
+            <xs:element name="distrito" type="xs:string"/>
+            <xs:element name="concelho" type="xs:string"/>
+            <xs:element name="freguesia" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- A) Documento de Ocorrência (Incêndios) -->
+    <xs:complexType name="OcorrenciaType">
+        <xs:sequence>
+            <!-- obrigatórios -->
+            <xs:element name="estado" type="tns:EstadoOcorrenciaType"/>
+            <xs:element name="codigoIncidente" type="xs:string"/>
+            <xs:element name="localizacao" type="tns:LocalizacaoType"/>
+            <xs:element name="inicio" type="xs:dateTime"/>
+            
+            <!-- opcionais (submissões parciais / updates) -->
+            <xs:element name="duracaoHoras" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="areaArdidaHa" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="tipoPovoamento" type="tns:TipoPovoamentoType" minOccurs="0"/>
+            <xs:element name="causaProvavel" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- B) Documento Meteorológico (Dados Horários) -->
+    <xs:complexType name="MeteorologiaType">
+        <xs:sequence>
+            <xs:element name="estacaoId" type="xs:string"/>
+            <xs:element name="data" type="xs:dateTime"/>
+            
+            <xs:element name="temperaturaMax" type="xs:decimal"/>
+            <xs:element name="temperaturaMin" type="xs:decimal"/>
+            <xs:element name="temperaturaMedia" type="xs:decimal"/>
+            
+            <xs:element name="ventoVelocidadeMax" type="xs:decimal"/>
+            <xs:element name="ventoDirecao" type="tns:DirecaoVentoType"/>
+            <xs:element name="ventoRafadaMax" type="xs:decimal"/>
+            
+            <xs:element name="precipitacaoSoma" type="xs:decimal"/>
+            <xs:element name="pressaoAtmosferica" type="xs:decimal"/>
+            <xs:element name="radiacao" type="xs:decimal"/>
+            <xs:element name="insolacao" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- C) Documento de Alocação de Meios (Anual) -->
+    <xs:complexType name="AlocacaoMeiosType">
+        <xs:sequence>
+            <xs:element name="ano" type="xs:gYear"/>
+            <xs:element name="regiao">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="municipio" type="xs:string"/>
+                        <xs:element name="freguesia" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="capacidadeBombeiros" type="xs:integer"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ===== 3 DOCUMENTOS RAIZ ===== -->
+    <xs:element name="ocorrencia" type="tns:OcorrenciaType"/>
+    <xs:element name="meteorologia" type="tns:MeteorologiaType"/>
+    <xs:element name="alocacaoMeios" type="tns:AlocacaoMeiosType"/>
+    
+</xs:schema>

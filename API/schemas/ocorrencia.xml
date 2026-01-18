@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ocorrencia xmlns="http://estg.ipp.pt/pei/wildfirestats">
+    <estado>Em Curso</estado>
+    <codigoIncidente>1942461</codigoIncidente>
+    <localizacao>
+        <distrito>Porto</distrito>
+        <concelho>Gondomar</concelho>
+        <freguesia>Gondomar (São Cosme)</freguesia>
+    </localizacao>
+    <inicio>2024-01-05T20:00:00Z</inicio>
+    <duracaoHoras>0.63</duracaoHoras>
+    <areaArdidaHa>0</areaArdidaHa>
+    <tipoPovoamento>Mato</tipoPovoamento>
+    <causaProvavel>Indeterminadas - Prova material</causaProvavel>
+</ocorrencia>

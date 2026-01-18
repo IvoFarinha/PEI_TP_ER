@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alocacaoMeios xmlns="http://estg.ipp.pt/pei/wildfirestats">
+    <ano>2024</ano>
+    <regiao>
+        <municipio>GONDOMAR</municipio>
+        <freguesia>Gondomar (São Cosme)</freguesia>
+    </regiao>
+    <capacidadeBombeiros>257</capacidadeBombeiros>
+</alocacaoMeios>

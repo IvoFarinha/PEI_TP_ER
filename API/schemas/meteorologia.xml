@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<meteorologia xmlns="http://estg.ipp.pt/pei/wildfirestats">
+    <estacaoId>1351</estacaoId>
+    <data>2024-01-05T00:00:00Z</data>
+    
+    <temperaturaMax>13.6</temperaturaMax>
+    <temperaturaMin>7.1</temperaturaMin>
+    <temperaturaMedia>10.35</temperaturaMedia>
+    
+    <ventoVelocidadeMax>23.1</ventoVelocidadeMax>
+    <ventoDirecao>NO</ventoDirecao>
+    <ventoRafadaMax>43.2</ventoRafadaMax>
+    
+    <precipitacaoSoma>0</precipitacaoSoma>
+    <pressaoAtmosferica>1017.4</pressaoAtmosferica>
+    <radiacao>120.0</radiacao>
+    <insolacao>4.5</insolacao>
+</meteorologia>

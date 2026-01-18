@@ -1,0 +1,20 @@
+{
+  "name": "tp_er_pei",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "fast-xml-parser": "^5.3.3",
+    "mongoose": "^9.1.4",
+    "xsd-schema-validator": "^0.11.0"
+  }
+}
